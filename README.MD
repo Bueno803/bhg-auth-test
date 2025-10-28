@@ -22,8 +22,7 @@ This project provides user registration, login, and cookie-based authentication.
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
+   git clone https://github.com/Bueno803/bhg-auth-test.git
    ```
 
 2. **Install dependencies**
@@ -78,4 +77,5 @@ This project provides user registration, login, and cookie-based authentication.
     ```bash
         sudo nginx -t
         sudo systemctl reload nginx
+
     ```
