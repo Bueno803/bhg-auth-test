@@ -39,39 +39,39 @@ This project provides user registration, login, and cookie-based authentication.
 
 4. **Configure Nginx**
     ```Nginx
-# Default server configuration
-# Copied from /etc/nginx/sites-available/default (Ubuntu 22.04) and modified.
-# You can move that to a different file under sites-available/ and symlink that
-# to sites-enabled/ to enable it.
-server {
-	listen 80;
-	listen [::]:80;
+	# Default server configuration
+	# Copied from /etc/nginx/sites-available/default (Ubuntu 22.04) and modified.
+	# You can move that to a different file under sites-available/ and symlink that
+	# to sites-enabled/ to enable it.
+	server {
+		listen 80;
+		listen [::]:80;
 
-	server_name ace.auth;
+		server_name ace.auth;
 
-	root /var/www/auth-test/public;
+		root /var/www/auth-test/public;
 
-	index index.php index.html;
+		index index.php index.html;
 
 
-	location / {
-    # No fall back included here
-		try_files $uri /index.php?$is_args$args;
+		location / {
+		# No fall back included here
+			try_files $uri /index.php?$is_args$args;
+		}
+
+		location ~ \.php$ {
+			include snippets/fastcgi-php.conf;
+			fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+			fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+			include fastcgi_params;
+		}
+
+		# deny access to .htaccess files, if Apache's document root
+		# concurs with nginx's one
+		location ~ /\.ht {
+			deny all;
+		}
 	}
-
-	location ~ \.php$ {
-		include snippets/fastcgi-php.conf;
-		fastcgi_pass unix:/run/php/php8.3-fpm.sock;
-		fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
-		include fastcgi_params;
-	}
-
-	# deny access to .htaccess files, if Apache's document root
-	# concurs with nginx's one
-	location ~ /\.ht {
-		deny all;
-	}
-}
     ```
 
 8. **Reload Nginx**

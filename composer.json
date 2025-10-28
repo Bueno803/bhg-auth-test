@@ -1,0 +1,18 @@
+{
+    "name": "bueno/auth-test",
+    "description": "I am testing the delight php auth library.",
+    "type": "project",
+    "license": "N/A",
+    "authors": [
+        {
+            "name": "Abdullah Bueno",
+            "email": "buenobusiness803@gmail.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {
+        "delight-im/auth": "^9.0",
+        "slim/slim": "^4",
+        "slim/psr7": "^1.7"
+    }
+}

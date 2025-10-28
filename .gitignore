@@ -1,0 +1,34 @@
+# Composer dependencies
+/vendor/
+composer.phar
+
+# Composer lock file (optional – many teams commit this)
+/composer.lock
+
+# Environment files (you don’t want secrets in the repo)
+.env
+.env.local
+.env.*.local
+
+# Cache and logs (Nginx/Apache may write here)
+var/
+storage/
+public/storage
+
+# OS‑generated files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.log
+*.pid
+
+# IDE / editor temp files
+.idea/
+.vscode/
+*.phpstorm.meta.php
+*.php-version
+
+# Miscellaneous
+npm-debug.log
+yarn-error.log
